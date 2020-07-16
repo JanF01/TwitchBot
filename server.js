@@ -9,10 +9,10 @@ const options = {
     reconnect: true,
   },
   identity: {
-    username: "MentallyChallengedBot",
-    password: "oauth:usfbuamdm6k1sp8mh1ae0181c0u8fj",
+    username: "SumaParafialna",
+    password: "oauth:vn4ytsl0o90g2mbzfah614jp1tk30q",
   },
-  channels: ["n0thingMatters"],
+  channels: ["yingushi"],
 };
 
 const client = new tmi.client(options);
@@ -20,20 +20,33 @@ const client = new tmi.client(options);
 client.connect();
 
 client.on("connected", (address, port) => {
-  client.action(
-    "n0thingMatters",
-    "Hello MentallyChallengedBot is now connected"
-  );
+  //   client.action(
+  //     "n0thingMatters",
+  //     "Hello MentallyChallengedBot is now connected"
+  //   );
+  //   client.action(
+  //     "ludwig",
+  //     "PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp"
 });
 
 client.on("chat", (channel, user, message, self) => {
-  if (message === "!chuj") {
-    client.action("n0thingMatters", "Nieładnie tak mówić");
-  }
-  if (message === "!pogchamp") {
+  if (
+    message.includes("What are you studying?") ||
+    message.includes("What are you studing?")
+  ) {
     client.action(
-      "n0thingMatters",
-      "https://www.youtube.com/watch?v=IDz0g6dZKAQ"
+      "yingushi",
+      "Currently working on Axiomatic set Theory and Real Analysis!"
     );
   }
+
+  if (message.includes("!quote")) {
+    client.action("yingushi", "'Do or do not. There is no try.'");
+  }
+  //   if (message === "!pogchamp") {
+  //     client.action(
+  //       "n0thingMatters",
+  //       "PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp PogChamp"
+  //     );
+  //   }
 });
